@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>911 Simulador para Niños</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="phone-container">
+        <div id="phone-notch"></div>
+        <div id="phone-screen">
+            <header id="phone-status">
+                <span id="time">12:00</span>
+                <span id="icons">🔋 📶</span>
+            </header>
+
+            <main id="app-content">
+                <div id="display-area">
+                    <div id="call-timer" class="hidden">00:00</div>
+                    <div id="mic-visualizer" class="hidden">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <div id="number-container">
+                        <span id="number-display"></span>
+                        <button id="delete-btn" class="hidden" onclick="deleteDigit()">⌫</button>
+                    </div>
+                    <div id="instruction-icon">📱</div>
+                </div>
+
+                <div id="keypad">
+                    <button class="key" onclick="pressKey('1')">1<span class="letters">&nbsp;</span></button>
+                    <button class="key" onclick="pressKey('2')">2<span class="letters">ABC</span></button>
+                    <button class="key" onclick="pressKey('3')">3<span class="letters">DEF</span></button>
+                    <button class="key" onclick="pressKey('4')">4<span class="letters">GHI</span></button>
+                    <button class="key" onclick="pressKey('5')">5<span class="letters">JKL</span></button>
+                    <button class="key" onclick="pressKey('6')">6<span class="letters">MNO</span></button>
+                    <button class="key" onclick="pressKey('7')">7<span class="letters">PQRS</span></button>
+                    <button class="key" onclick="pressKey('8')">8<span class="letters">TUV</span></button>
+                    <button class="key" onclick="pressKey('9')">9<span class="letters">WXYZ</span></button>
+                    <button class="key asterisk">*<span class="letters">&nbsp;</span></button>
+                    <button class="key" onclick="pressKey('0')">0<span class="letters">+</span></button>
+                    <button class="key hash">#<span class="letters">&nbsp;</span></button>
+                </div>
+
+                <div id="call-area">
+                    <button id="call-btn" onclick="validateCall()">📞</button>
+                </div>
+            </main>
+
+            <!-- Success Overlay (No text, mostly visual) -->
+            <div id="success-overlay" class="hidden">
+                <div class="star-container">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                </div>
+                <div class="happy-face">😊</div>
+                <h2 id="success-msg">¡MUY BIEN!</h2>
+                <button id="retry-btn" onclick="resetSimulator()">🔄</button>
+            </div>
+
+            <!-- Error Feedback (Gentle, icon based) -->
+            <div id="error-feedback" class="hidden">
+                <div class="sad-face">🤔</div>
+                <p>¡Inténtalo de nuevo!</p>
+            </div>
+        </div>
+        <div id="home-button"></div>
+    </div>
+
+    <!-- Hidden audio elements -->
+    <audio id="click-sound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+    <audio id="success-sound" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3"></audio>
+    <audio id="dispatcher-audio-placeholder" src="911-audio.mp3"></audio>
+    <audio id="location-audio" src="ubicacion.mp3"></audio>
+    <audio id="help-audio" src="ayudaencamino.mp3"></audio>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
